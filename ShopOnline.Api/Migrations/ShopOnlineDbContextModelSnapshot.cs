@@ -83,15 +83,12 @@ namespace ShopOnline.Api.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImageURL")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("Price")
@@ -345,8 +342,11 @@ namespace ShopOnline.Api.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Name")
+                    b.Property<string>("IconCSS")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -357,21 +357,25 @@ namespace ShopOnline.Api.Migrations
                         new
                         {
                             Id = 1,
+                            IconCSS = "fas fa-spa",
                             Name = "Beauty"
                         },
                         new
                         {
                             Id = 2,
+                            IconCSS = "fas fa-couch",
                             Name = "Furniture"
                         },
                         new
                         {
                             Id = 3,
+                            IconCSS = "fas fa-headphones",
                             Name = "Electronics"
                         },
                         new
                         {
                             Id = 4,
+                            IconCSS = "fas fa-shoe-prints",
                             Name = "Shoes"
                         });
                 });
@@ -385,7 +389,6 @@ namespace ShopOnline.Api.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("UserName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

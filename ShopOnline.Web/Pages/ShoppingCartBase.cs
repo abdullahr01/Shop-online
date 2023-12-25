@@ -8,19 +8,23 @@ namespace ShopOnline.Web.Pages
     public class ShoppingCartBase:ComponentBase
     {
         [Inject]
-        public IJSRuntime Js {  get; set; }
+        public IJSRuntime? Js {  get; set; }
         [Inject]
-        public IShoppingCartService ShoppingCartService { get; set; }
-        public List<CartItemDto> ShoppingCartItems { get; set; }
-        public string ErrorMessage { get; set; }
-        protected string TotalPrice { get; set; }
+        public IShoppingCartService? ShoppingCartService { get; set; }
+        public List<CartItemDto>? ShoppingCartItems { get; set; }
+        [Inject]
+        NavigationManager NavigationManager { get; set; }
+        public string? ErrorMessage { get; set; }
+        protected string? TotalPrice { get; set; }
         protected int TotalQuantity { get; set; }
+
+        protected string GeneratedBillContent {  get; set; }
         protected override async Task OnInitializedAsync()
         {
             try
             {
-                ShoppingCartItems = await ShoppingCartService.GetItems(HardCoded.UserId);
-                CalculateCartSummaryTotals();
+                ShoppingCartItems = await ShoppingCartService!.GetItems(HardCoded.UserId);
+                CartChanged();
             }
             catch (Exception ex)
             {
@@ -29,9 +33,9 @@ namespace ShopOnline.Web.Pages
         }
         protected async Task DeleteCartItem_Click(int id)
         {
-            var cartItemDto = await ShoppingCartService.DeleteItem(id);
+            var cartItemDto = await ShoppingCartService!.DeleteItem(id);
             RemoveCartItem(id);
-            CalculateCartSummaryTotals();
+            CartChanged();
         }
 
         protected async Task UpdateQuantityCartItem_Click(int id, int quantity)
@@ -45,14 +49,14 @@ namespace ShopOnline.Web.Pages
                         CartItemId = id,
                         Quantity = quantity
                     };
-                    var returnedUpdateItemDto = await this.ShoppingCartService.UpdateQuantity(updateItemDto);
-                    UpdateItemTotalPrice(returnedUpdateItemDto);
-                    CalculateCartSummaryTotals();
+                    var returnedUpdateItemDto = await this.ShoppingCartService!.UpdateQuantity(updateItemDto);
+                    UpdateItemTotalPrice(returnedUpdateItemDto!);
+                    CartChanged();
                     await MakeUpdateQuantityButtonVisible(id, false);
                 }
                 else
                 {
-                    var item = this.ShoppingCartItems.FirstOrDefault(i => i.Id == id);
+                    var item = this.ShoppingCartItems!.FirstOrDefault(i => i.Id == id);
                     if(item != null)
                     {
                         item.Quantity = 1;
@@ -73,7 +77,7 @@ namespace ShopOnline.Web.Pages
 
         private async Task MakeUpdateQuantityButtonVisible(int id, bool visible)
         {
-            await Js.InvokeVoidAsync("MakeUpdateQuantityButtonVisible", id, true);
+            await Js!.InvokeVoidAsync("MakeUpdateQuantityButtonVisible", id, true);
         }
         private void UpdateItemTotalPrice(CartItemDto cartItemDto)
         {
@@ -95,20 +99,39 @@ namespace ShopOnline.Web.Pages
 
         private void SetTotalPrice()
         {
-            TotalPrice = this.ShoppingCartItems.Sum(p => p.TotalPrice).ToString("C");
+            TotalPrice = this.ShoppingCartItems!.Sum(p => p.TotalPrice).ToString("C");
         }
         private void SetTotalQuantity()
         {
-            TotalQuantity = this.ShoppingCartItems.Sum(p => p.Quantity);
+            TotalQuantity = this.ShoppingCartItems!.Sum(p => p.Quantity);
         }
         private CartItemDto GetCartItem(int id)
         {
-            return ShoppingCartItems.FirstOrDefault(i => i.Id == id);
+            return ShoppingCartItems!.FirstOrDefault(i => i.Id == id)!;
         }
         private void RemoveCartItem(int id)
         {
             var cartItemDto = GetCartItem(id);
-            ShoppingCartItems.Remove(cartItemDto);
+            ShoppingCartItems!.Remove(cartItemDto);
         }
+        private void CartChanged()
+        {
+            CalculateCartSummaryTotals();
+            ShoppingCartService!.RaiseEventOnShoppingCartChanged(TotalQuantity);
+        }
+
+        protected async Task GenerateReceiptBillAndNavigate()
+        {
+            try
+            {
+                GeneratedBillContent = await ShoppingCartService!.GenerateBillForCart(HardCoded.UserId);
+                NavigationManager.NavigateTo("/Checkout");
+            }
+            catch (Exception ex)
+            {
+                ErrorMessage = ex.Message;
+            }
+        }
+
     }
 }

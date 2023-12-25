@@ -17,11 +17,11 @@ else if(ErrorMessage != null)
 else
 {
     <h3 class="mb-3">Shopping Cart</h3>
-    @if(ShoppingCartItems.Count() > 0)
+    @if(ShoppingCartItems!.Count() > 0)
     {
         <div class="row mb-5">
             <div class="col-md-9">
-                @foreach (var item in ShoppingCartItems)
+                @foreach (var item in ShoppingCartItems!)
                 {
                     <div class="row mb-4">
                         <div class="col-md-4">
@@ -52,7 +52,7 @@ else
                 <h5>Cart Summary</h5>
                 <div class="mt-2">
                     <div>Total - (@TotalQuantity items)&nbsp;<b>@TotalPrice</b></div>
-                    <a hred="#" class="btn btn-success">
+                    <a href="Checkout" class="btn btn-success">
                         <span class="oi oi-credit-card"></span>&nbsp;Proceed to Checkout
                     </a>
                 </div>

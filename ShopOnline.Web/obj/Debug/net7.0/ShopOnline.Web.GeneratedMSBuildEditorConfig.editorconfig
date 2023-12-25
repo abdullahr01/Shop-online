@@ -20,6 +20,14 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Softwares/Blazor/ShopOnlineVpProject/ShopOnline.Solution/ShopOnline.Web/Pages/Checkout.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2hlY2tvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Softwares/Blazor/ShopOnlineVpProject/ShopOnline.Solution/ShopOnline.Web/Pages/Component.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tcG9uZW50LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Softwares/Blazor/ShopOnlineVpProject/ShopOnline.Solution/ShopOnline.Web/Pages/Counter.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -40,8 +48,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Softwares/Blazor/ShopOnlineVpProject/ShopOnline.Solution/ShopOnline.Web/Pages/ProductsByCategory.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdHNCeUNhdGVnb3J5LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Softwares/Blazor/ShopOnlineVpProject/ShopOnline.Solution/ShopOnline.Web/Pages/ShoppingCart.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hvcHBpbmdDYXJ0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Softwares/Blazor/ShopOnlineVpProject/ShopOnline.Solution/ShopOnline.Web/Shared/CartMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENhcnRNZW51LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Softwares/Blazor/ShopOnlineVpProject/ShopOnline.Solution/ShopOnline.Web/Shared/ProductCategoriesNavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFByb2R1Y3RDYXRlZ29yaWVzTmF2TWVudS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Softwares/Blazor/ShopOnlineVpProject/ShopOnline.Solution/ShopOnline.Web/Shared/SurveyPrompt.razor]

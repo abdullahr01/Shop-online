@@ -105,6 +105,70 @@
       "PackagePath": "staticwebassets\\Images\\Shoes\\shoes4.png"
     },
     {
+      "Id": "D:\\Softwares\\Blazor\\ShopOnlineVpProject\\ShopOnline.Solution\\ShopOnline.Web\\wwwroot\\Images\\abcd.png",
+      "PackagePath": "staticwebassets\\Images\\abcd.png"
+    },
+    {
+      "Id": "D:\\Softwares\\Blazor\\ShopOnlineVpProject\\ShopOnline.Solution\\ShopOnline.Web\\wwwroot\\Images\\blog_1.jpg",
+      "PackagePath": "staticwebassets\\Images\\blog_1.jpg"
+    },
+    {
+      "Id": "D:\\Softwares\\Blazor\\ShopOnlineVpProject\\ShopOnline.Solution\\ShopOnline.Web\\wwwroot\\Images\\children.jpg",
+      "PackagePath": "staticwebassets\\Images\\children.jpg"
+    },
+    {
+      "Id": "D:\\Softwares\\Blazor\\ShopOnlineVpProject\\ShopOnline.Solution\\ShopOnline.Web\\wwwroot\\Images\\cloth_1.jpg",
+      "PackagePath": "staticwebassets\\Images\\cloth_1.jpg"
+    },
+    {
+      "Id": "D:\\Softwares\\Blazor\\ShopOnlineVpProject\\ShopOnline.Solution\\ShopOnline.Web\\wwwroot\\Images\\cloth_2.jpg",
+      "PackagePath": "staticwebassets\\Images\\cloth_2.jpg"
+    },
+    {
+      "Id": "D:\\Softwares\\Blazor\\ShopOnlineVpProject\\ShopOnline.Solution\\ShopOnline.Web\\wwwroot\\Images\\cloth_3.jpg",
+      "PackagePath": "staticwebassets\\Images\\cloth_3.jpg"
+    },
+    {
+      "Id": "D:\\Softwares\\Blazor\\ShopOnlineVpProject\\ShopOnline.Solution\\ShopOnline.Web\\wwwroot\\Images\\hero_1.jpg",
+      "PackagePath": "staticwebassets\\Images\\hero_1.jpg"
+    },
+    {
+      "Id": "D:\\Softwares\\Blazor\\ShopOnlineVpProject\\ShopOnline.Solution\\ShopOnline.Web\\wwwroot\\Images\\hero_1.png",
+      "PackagePath": "staticwebassets\\Images\\hero_1.png"
+    },
+    {
+      "Id": "D:\\Softwares\\Blazor\\ShopOnlineVpProject\\ShopOnline.Solution\\ShopOnline.Web\\wwwroot\\Images\\men.jpg",
+      "PackagePath": "staticwebassets\\Images\\men.jpg"
+    },
+    {
+      "Id": "D:\\Softwares\\Blazor\\ShopOnlineVpProject\\ShopOnline.Solution\\ShopOnline.Web\\wwwroot\\Images\\person_1.jpg",
+      "PackagePath": "staticwebassets\\Images\\person_1.jpg"
+    },
+    {
+      "Id": "D:\\Softwares\\Blazor\\ShopOnlineVpProject\\ShopOnline.Solution\\ShopOnline.Web\\wwwroot\\Images\\person_2.jpg",
+      "PackagePath": "staticwebassets\\Images\\person_2.jpg"
+    },
+    {
+      "Id": "D:\\Softwares\\Blazor\\ShopOnlineVpProject\\ShopOnline.Solution\\ShopOnline.Web\\wwwroot\\Images\\person_3.jpg",
+      "PackagePath": "staticwebassets\\Images\\person_3.jpg"
+    },
+    {
+      "Id": "D:\\Softwares\\Blazor\\ShopOnlineVpProject\\ShopOnline.Solution\\ShopOnline.Web\\wwwroot\\Images\\person_4.jpg",
+      "PackagePath": "staticwebassets\\Images\\person_4.jpg"
+    },
+    {
+      "Id": "D:\\Softwares\\Blazor\\ShopOnlineVpProject\\ShopOnline.Solution\\ShopOnline.Web\\wwwroot\\Images\\shoe.png",
+      "PackagePath": "staticwebassets\\Images\\shoe.png"
+    },
+    {
+      "Id": "D:\\Softwares\\Blazor\\ShopOnlineVpProject\\ShopOnline.Solution\\ShopOnline.Web\\wwwroot\\Images\\shoe_1.jpg",
+      "PackagePath": "staticwebassets\\Images\\shoe_1.jpg"
+    },
+    {
+      "Id": "D:\\Softwares\\Blazor\\ShopOnlineVpProject\\ShopOnline.Solution\\ShopOnline.Web\\wwwroot\\Images\\women.jpg",
+      "PackagePath": "staticwebassets\\Images\\women.jpg"
+    },
+    {
       "Id": "D:\\Softwares\\Blazor\\ShopOnlineVpProject\\ShopOnline.Solution\\ShopOnline.Web\\wwwroot\\css\\app.css",
       "PackagePath": "staticwebassets\\css\\app.css"
     },

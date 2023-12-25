@@ -12,21 +12,21 @@ namespace ShopOnline.Web.Pages
         public int Id { get; set; }
 
         [Inject]
-        public IProductService ProductService { get; set; }
+        public IProductService? ProductService { get; set; }
 
         [Inject]
-        public IShoppingCartService ShoppingCartService { get; set; }
+        public IShoppingCartService? ShoppingCartService { get; set; }
 
         [Inject]
-        public NavigationManager NavigationManager { get; set; }
-        public ProductDto Product { get; set; }
-        public string ErrorMessage { get; set; }
+        public NavigationManager? NavigationManager { get; set; }
+        public ProductDto? Product { get; set; }
+        public string? ErrorMessage { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
             try
             {
-                Product = await ProductService.GetItem(Id);
+                Product = await ProductService!.GetItem(Id);
             }
             catch (Exception ex)
             {
@@ -38,8 +38,8 @@ namespace ShopOnline.Web.Pages
         {
             try
             {
-                var cartItemDto = await ShoppingCartService.AddItem(cartItemToAddDto);
-                NavigationManager.NavigateTo("/ShoppingCart");
+                var cartItemDto = await ShoppingCartService!.AddItem(cartItemToAddDto);
+                NavigationManager!.NavigateTo("/ShoppingCart");
               
                 Debug.WriteLine("Product added to cart");
 

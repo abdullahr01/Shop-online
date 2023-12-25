@@ -128,7 +128,7 @@ namespace ShopOnline.Api.Controllers
                     return NotFound();
                 }
                 var product = await productRepository.GetItem(cartItem.ProductId);
-                var cartItemDto = cartItem.ConvertToDto(product);
+                var cartItemDto = cartItem.ConvertToDto(product!);
                 return Ok(cartItemDto);
             }
             catch (Exception ex)

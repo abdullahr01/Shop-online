@@ -22,7 +22,7 @@ namespace ShopOnline.Api.Repositories
                                                                      c.ProductId == productId);
 
         }
-        public async Task<CartItem> AddItem(CartItemToAddDto cartItemToAddDto)
+        public async Task<CartItem?> AddItem(CartItemToAddDto cartItemToAddDto)
         {
             if (await CartItemExists(cartItemToAddDto.CartId, cartItemToAddDto.ProductId) == false)
             {
@@ -45,7 +45,7 @@ namespace ShopOnline.Api.Repositories
             return null;
         }
 
-        public async Task<CartItem> DeleteItem(int id)
+        public async Task<CartItem?> DeleteItem(int id)
         {
             var item = await this.shopOnlineDbContext.CartItems.FindAsync(id);
             if(item != null)
@@ -56,7 +56,7 @@ namespace ShopOnline.Api.Repositories
             return item;
         }
 
-        public async Task<CartItem> GetItem(int id)
+        public async Task<CartItem?> GetItem(int id)
         {
             return await (from cart in this.shopOnlineDbContext.Carts
                           join cartItem in this.shopOnlineDbContext.CartItems
@@ -87,7 +87,7 @@ namespace ShopOnline.Api.Repositories
                          }).ToListAsync();
         }
 
-        public async Task<CartItem> UpdateQuantity(int id, CartItemQuantityUpdateDto cartItemQuantityUpdateDto)
+        public async Task<CartItem?> UpdateQuantity(int id, CartItemQuantityUpdateDto cartItemQuantityUpdateDto)
         {
             var item = await this.shopOnlineDbContext.CartItems.FindAsync();
             if(item != null)

@@ -10,11 +10,16 @@ namespace ShopOnline.Web.Services
     {
         private readonly HttpClient httpClient;
 
+        public event Action<int> OnShoppingCartChanged;
+
         public ShoppingCartService(HttpClient httpClient)
         {
             this.httpClient = httpClient;
         }
-        public async Task<CartItemDto> AddItem(CartItemToAddDto cartItemToAddDto)
+
+
+
+        public async Task<CartItemDto?> AddItem(CartItemToAddDto cartItemToAddDto)
         {
             try
             {
@@ -40,12 +45,12 @@ namespace ShopOnline.Web.Services
             }
         }
 
-        public async Task<CartItemDto> DeleteItem(int id)
+        public async Task<CartItemDto?> DeleteItem(int id)
         {
             try
             {
                 var response = await httpClient.DeleteAsync($"api/ShoppingCart/{id}");
-                if(response.IsSuccessStatusCode)
+                if (response.IsSuccessStatusCode)
                 {
                     return await response.Content.ReadFromJsonAsync<CartItemDto>();
                 }
@@ -84,7 +89,15 @@ namespace ShopOnline.Web.Services
             }
         }
 
-        public async Task<CartItemDto> UpdateQuantity(CartItemQuantityUpdateDto cartItemQuantityUpdateDto)
+        public void RaiseEventOnShoppingCartChanged(int totalQuantity)
+        {
+            if (OnShoppingCartChanged != null)
+            {
+                OnShoppingCartChanged.Invoke(totalQuantity);
+            }
+        }
+
+        public async Task<CartItemDto?> UpdateQuantity(CartItemQuantityUpdateDto cartItemQuantityUpdateDto)
         {
             try
             {
@@ -100,6 +113,34 @@ namespace ShopOnline.Web.Services
             }
             catch (Exception)
             {
+                throw;
+            }
+        }
+
+        public async Task<string> GenerateBillForCart(int userId)
+        {
+            try
+            {
+                var cartItems = await GetItems(userId);
+                decimal totalCost = 0;
+                StringBuilder billContent = new StringBuilder();
+
+                billContent.AppendLine("<h2>Invoice</h2>");
+
+                foreach (var item in cartItems)
+                {
+                    decimal itemTotal = item.Price * item.Quantity;
+                    totalCost += itemTotal;
+                    billContent.AppendLine($"<p>{item.ProductName} - ${item.Price} - Quantity: {item.Quantity} - Total: ${itemTotal}</p>");
+                }
+
+                billContent.AppendLine($"<p><strong>Total: ${totalCost}</strong></p>");
+
+                return billContent.ToString();
+            }
+            catch (Exception)
+            {
+                //Log exception
                 throw;
             }
         }

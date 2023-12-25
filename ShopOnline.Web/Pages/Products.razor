@@ -1,7 +1,9 @@
-﻿@page "/"
+﻿@page "/product"
 @using ShopOnline.Models.Dtos
 @inherits ProductsBase
-
+<head>
+    <link  rel=""/>
+</head>
 @if(Products == null)
 {
     <h3>Loading....</h3>
@@ -14,7 +16,7 @@ else
     var productCount = Products.Count();
 
     @if(productCount>0)
-    {
+    {   
             @foreach(var prodGroup in GetGroupedProductsByCategory())
             {
                 <h4>@GetCategoryName(prodGroup)</h4>
